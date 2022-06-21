@@ -31,9 +31,9 @@ const Catalog = () => {
   },[searchedResults,pageNumber])
 
 
-useEffect(()=>{
-
-},[arrayToShow])
+useEffect(() => {
+  findSearchResults();
+ }, [searchQuery])
 
   const handlePageClick = (event) => {
     let x=Object.assign({},event);
@@ -47,6 +47,7 @@ useEffect(()=>{
       currentArray=menu[selectedcategory];
     }
     else{
+      // findSearchResults();
       currentArray=searchedResults;
     } 
     
@@ -92,6 +93,10 @@ useEffect(()=>{
     await setSearchQuery(value)
   }
 
+  const handleCategory = async (event) => {
+    await setSelectedcategory(event?.target?.value);
+  }
+
   const  findSearchResults = async()=>{
     if (searchQuery !== '') {
     const searchedItems = await menu[selectedcategory].filter(
@@ -106,13 +111,6 @@ useEffect(()=>{
   }
 }
 
-  useEffect(() => {
-   findSearchResults();
-  }, [searchQuery])
-
-  const handleCategory = async (event) => {
-    await setSelectedcategory(event?.target?.value);
-  }
 
   return (
     <div>

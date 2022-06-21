@@ -1,11 +1,11 @@
 import React, { useEffect, useState, } from 'react';
-import { foodCategories } from "../../assets/images/utils/FoodItems";
+import { foodCategories } from "../../assets/utils/FoodItems";
 import './Catalog.css'
 import Card from "../Card/Card";
 import NavBar from "../NavBar/NavBar";
 import Pagination from '../Pagination/Pagination';
-import { paginate } from '../../assets/images/utils/paginate';
-import { LIMIT } from '../../assets/images/utils/paginate';
+import { paginate } from '../../assets/utils/paginate';
+import { LIMIT } from '../../assets/utils/paginate';
 
 const Catalog = () => {
 
@@ -134,25 +134,10 @@ useEffect(()=>{
              
             )
           })
-          // searchQuery !== ''
-          //   ? searchedResults?.map((item, index) => {
-          //     return (
-          //       <div key={index}>
-          //         <Card item={item} key={index} />
-          //       </div>
-          //     )
-          //   })
-          //   : menu[selectedcategory]?.map((item, index) => {
-              // return (
-              //   <div key={index}>
-              //     <Card item={item} key={index} />
-              //   </div>
-              // )
-          //   })
         }
       </div>
       {
-        totalPages > 1 &&
+        arrayToShow?.length>0 && totalPages> 1 &&
         <Pagination handlePageClick={handlePageClick} pageCount={totalPages} />
       }
 

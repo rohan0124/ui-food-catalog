@@ -5,8 +5,8 @@ import "./NavBar.css"
 const NavBar = (props) => {
   const { dropdownList, searchValue, handleTextChange, categoryValue, onChangeCategory } = props
 
-  const selectCategory = async(event) => {
-    await onChangeCategory(event);
+  const selectCategory = (event) => {
+     onChangeCategory(event);
   }
 
   return (

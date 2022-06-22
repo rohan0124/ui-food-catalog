@@ -24,12 +24,12 @@ const Catalog = () => {
 
   useEffect(() => {
     handleArrayToShow();
+    setPage(1);
   },[selectedcategory])
 
   useEffect(()=>{
     handleArrayToShow();
   },[searchedResults,pageNumber])
-
 
 useEffect(() => {
   findSearchResults();
@@ -89,12 +89,12 @@ useEffect(() => {
     setMenu(obj)
   }
 
-  const handleTextChange = async (value) => {
-    await setSearchQuery(value)
+  const handleTextChange =  (value) => {
+     setSearchQuery(value)
   }
 
-  const handleCategory = async (event) => {
-    await setSelectedcategory(event?.target?.value);
+  const handleCategory =  (event) => {
+     setSelectedcategory(event?.target?.value);
   }
 
   const  findSearchResults = async()=>{
